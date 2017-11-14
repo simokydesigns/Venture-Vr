@@ -1,0 +1,58 @@
+<section id="wrap">
+    <div class="container">
+    <br>
+	    <h2>VR Video Directory</h2>
+		    <label>search: </label>
+		    <input ng-model="query" placeholder="Search for artists" autofocus>
+		
+		    <label>by:
+		      <select ng-model="userOrder">
+		        <option value="name">Name</option>
+		        <option value="genre">Reknown</option>
+		      </select>
+		    </label>
+		  <br>
+		    <label>
+		      <input type="radio" ng-model="direction" name="direction" checked>
+		      ascending
+		     </label>
+		    <label>
+		      <input type="radio" ng-model="direction" name="direction" value="reverse">
+		      descending
+		    </label> 
+    <!-- 	  <div>
+		  		<a-scene class="fullscreen" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
+				<a-assets>
+				<video id="video" src="webapp/video/vr_roller_coaster" crossorigin="anonymous"></video>
+				</a-assets>
+				<a-videosphere src="#video" rotation="0 180 0" position="" scale="" visible="" material="" geometry=""></a-videosphere>
+				<canvas  data-aframe-canvas="true" width="1322" height="150" style="width: 1322px; height: 150px;">
+				</canvas>
+				<div class="a-enter-vr" aframe-injected="">
+				<button class="a-enter-vr-button" title="" aframe-injected=""></button>
+				</div>
+				<div class="a-orientation-modal a-hidden" aframe-injected="">
+				<button aframe-injected="">Exit VR</button>
+				</div>
+				<a-entity position="" data-aframe-default-camera="" camera="" wasd-controls="" rotation="" look-controls="" aframe-injected="" scale="" visible="">
+				</a-entity>
+				<a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible="">
+				</a-entity>
+				<a-entity light="" position="" data-aframe-default-light="" aframe-injected="" rotation="" scale="" visible=""></a-entity>
+                </a-scene>
+        </div>  -->
+	
+      <div class="row text-center text-lg-left" ng-show="query">
+
+        <div class="col-lg-4 col-lg-4 col-lg-4" ng-animate="'animate'" ng-repeat="item in user | filter: query | orderBy: userOrder:direction">
+         <label><a href="#/details/{{user.indexOf(item)}}">{{item.title}}</a></label>
+          
+	            <video id="video" width="320" height="240" controls="controls" preload="auto">
+	                 <source ng-src="{{item.path + item.title}}" type="video/{{item.fileType}}">
+	                    Your browser does not support the video tag.
+	            </video>
+          
+        </div>  
+      </div> 
+    </div>
+ </section>

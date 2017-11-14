@@ -1,0 +1,13 @@
+<section id="wrap">
+  <div ng-model="user" class="container">
+    <a href="#/details/{{prevItem}}" class="btn btn-left">&lt;</a>
+    <a href="#/details/{{nextItem}}" class="btn btn-right">&gt;</a>
+    <h1>{{user[selectedItem].firstName + user[selectedItem].lastName}}</h1>
+    <div>
+      <h3>{{user[selectedItem].email}}</h3>
+      <img ng-src="webapp/img/{{user[selectedItem].firstName + '_' + user[selectedItem].lastName}}_tn.jpg" alt="Photo of {{user[selectedItem].firstName + user[selectedItem].lastName}}">
+      <div>{{user[selectedItem].bio}}</div>
+    </div>
+    <a href="#/index">&laquo; Back to search</a>
+  </div>
+</section> 
